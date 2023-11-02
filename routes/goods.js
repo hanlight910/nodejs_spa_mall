@@ -3,12 +3,9 @@ const router = express.Router();
 
 const Goods = require("../schemas/goods");
 
-router.get("/goods/:goodsId", (req, res) => {
-    res.json({ goods: goods});
-});
-
 router.get('/goods/:goodsId', (req, res) => {
   const {goodsId} = req.params;
+  const goods = Goods.find({}) 
   const [detail] = goods.filter((goods) => goods.goodsId === Number(goodsId));
   res.json({detail});   
 });

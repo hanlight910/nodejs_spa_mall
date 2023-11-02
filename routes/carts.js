@@ -12,7 +12,7 @@ router.get("/carts", async(req,res) => {
         return cart.goodsId;
     })
     const goods = await Goods.find({goodsID: goodsIds});
-    const results = carts.map((carts) => {
+    const results = carts.map((cart) => {
         return {
             "quantity": cart.quantity,
             "goods": goods.find((item) => item.goodsID === cart.goodId ),
